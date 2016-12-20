@@ -13,6 +13,20 @@ class Camp < ActiveRecord::Base
 	has_many :users, through: :memberships
 	has_many :images #, :dependent => :destroy
 	has_many :grants
+  has_one :project_manager, :class_name => :Person
+  has_one :vice_project_manager, :class_name => :person
+  has_one :daily_inspection_responsible, :class_name => :person
+  has_one :disassembly_responsible, :class_name => :person
+  has_one :lnt_responsible, :class_name => :person
+  has_one :funding_responsible, :class_name => :person
+  has_one :build_responsible, :class_name => :person
+  has_one :work_manager, :class_name => :person
+  has_one :burn_responsible, :class_name => :person
+  has_one :designer, :class_name => :person
+
+  accepts_nested_attributes_for :project_manager, :vice_project_manager, :daily_inspection_responsible,
+                                :disassembly_responsible, :lnt_responsible
+
 
 	validates :creator, presence: true
 	validates :name, presence: true

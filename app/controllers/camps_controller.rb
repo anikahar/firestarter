@@ -16,12 +16,24 @@ class CampsController < ApplicationController
 
   def new
     @camp = Camp.new
+    build_subentities_for(@camp)
     @submit_text = 'Create'
   end
 
   def edit
     @camp = Camp.find params[:id]
+    build_subentities_for(@camp)
     @submit_text = 'Update'
+  end
+
+  def build_subentities_for(camp)
+    camp.project_manager ||= Person.new
+    # camp.build_vice_project_manager
+    # camp.build_daily_inspection_responsible
+    # camp.build_disassembly_responsible
+    # camp.build_lnt_respomsible
+    # camp.build_funding_
+
   end
 
   def create

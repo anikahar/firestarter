@@ -116,29 +116,33 @@
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     .header-heading
-      = t("form_extra_team_member_head")
-    
-    .combo
-      = t("form_extra_team_member_info")
+      = t("form_project_management")
 
-    .combo
+    = @camp.project_manager.id
+
+    = form.fields_for :project_manager do |builder|
+      .combo
+        = builder.label t("form_project_manager_name")
+        = builder.text_field :name, :maxlength => 64
+
+    -#.combo
       = form.label t("form_safetybag_first_member_name_label")
       = form.text_field :safetybag_firstMemberName, :maxlength => 64
-
-    .combo
-      = form.label t("form_safetybag_first_member_email_label")
-      = form.text_field :safetybag_firstMemberEmail, :maxlength => 64, :type => 'email'
-
-    .combo
-      = form.label t("form_safetybag_second_member_name_label")
-      = form.text_field :safetybag_secondMemberName, :maxlength => 64
-
-    .combo
-      = form.label t("form_safetybag_second_member_email_label")
-      = form.text_field :safetybag_secondMemberEmail, :maxlength => 64, :type => 'email'
-
-    .combo
-      = t("form_extra_extra_team_members_info")
+    -#
+    -#.combo
+    -#  = form.label t("form_safetybag_first_member_email_label")
+    -#  = form.text_field :safetybag_firstMemberEmail, :maxlength => 64, :type => 'email'
+    -#
+    -#.combo
+    -#  = form.label t("form_safetybag_second_member_name_label")
+    -#  = form.text_field :safetybag_secondMemberName, :maxlength => 64
+    -#
+    -#.combo
+    -#  = form.label t("form_safetybag_second_member_email_label")
+    -#  = form.text_field :safetybag_secondMemberEmail, :maxlength => 64, :type => 'email'
+    -#
+    -#.combo
+    -#  = t("form_extra_extra_team_members_info")
 
   - if Rails.configuration.x.firestarter_settings["safetybag"]
     

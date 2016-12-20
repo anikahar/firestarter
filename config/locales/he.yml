@@ -411,6 +411,8 @@ he:
 
       messages:
         record_invalid: 'האימות נכשל: %{errors}'
+  form_project_management: "אפיון וניהול הפרויקט"
+  form_project_manager_name: "שם מנהל הפרויקט"
 
 errors:
   format: "%{attribute} %{message}"
